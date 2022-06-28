@@ -23,4 +23,16 @@ public class ProductController {
         model.addAttribute("products", productServices.findAll());
         return "products";
     }
+
+    @GetMapping("/asc")
+    public String findAllByPriceAsc(Model model) {
+        model.addAttribute("products", productServices.findAllByPriceAsc());
+        return "productsAsc";
+    }
+
+    @GetMapping("/desc")
+    public String findAllByPriceDesc(Model model){
+        model.addAttribute("products", productServices.findAllByPriceDesc());
+        return "productsDesc";
+    }
 }

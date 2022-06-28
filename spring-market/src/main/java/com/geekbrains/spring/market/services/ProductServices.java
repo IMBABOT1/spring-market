@@ -12,16 +12,17 @@ import java.util.List;
 public class ProductServices {
     private ProductRepository productRepository;
 
-    public List<Product> findAllByPriceAsc(int price) {
-        return productRepository.findAllByPriceOrderByPriceAsc(price);
-    }
-
-    public List<Product> findAllByPriceDesc(int price){
-        return productRepository.findAllByPriceOrderByPriceDesc(price);
-    }
 
     public List<Product> findAll(){
         return productRepository.findAll();
+    }
+
+    public List<Product> findAllByPriceAsc(){
+        return productRepository.findAllByPriceAsc();
+    }
+
+    public List<Product> findAllByPriceDesc(){
+        return productRepository.findAllByPriceDesc();
     }
 }
 
