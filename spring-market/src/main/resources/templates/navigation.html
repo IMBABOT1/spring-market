@@ -20,11 +20,14 @@
                     <a class="nav-link" th:href="@{/products}">Продукты</a>
                 </li>
                 <li class="nav-item" th:classappend="${activeTab == 'ProductsAsc' ? 'active' : ''}">
-                    <a class="nav-link" th:href="@{/products/asc}">Products Asc</a>
+                    <a class="nav-link" th:href="@{/products/asc}">Min</a>
                 </li>
                 </li>
                 <li class="nav-item" th:classappend="${activeTab == 'ProductsDesc' ? 'active' : ''}">
-                    <a class="nav-link" th:href="@{/products/desc}">Products Desc</a>
+                    <a class="nav-link" th:href="@{/products/desc}">Max</a>
+                </li>
+                <li class="nav-item" th:classappend="${activeTab == 'ProductsMinMax' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/products/min_max}">MaxMin</a>
                 </li>
             </ul>
         </div>
