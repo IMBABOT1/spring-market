@@ -22,11 +22,11 @@ public class ProductServices {
         return productRepository.findAll(PageRequest.of(page, size));
     }
 
-    public List<Product> findAllByPriceASC(){
+    public List<Product> findOneByPriceASC(){
         return productRepository.findAllByPriceASC(PageRequest.of(0, 1));
     }
 
-    public List<Product> findAllByPriceDesc(){
+    public List<Product> findOneByPriceDesc(){
         return productRepository.findAllByPriceDESC(PageRequest.of(0, 1));
     }
 
@@ -35,6 +35,18 @@ public class ProductServices {
         list.add(productRepository.findAllByPriceDESC(PageRequest.of(0, 1)).get(0));
         list.add(productRepository.findAllByPriceASC(PageRequest.of(0, 1)).get(0));
         return list;
+    }
+
+    public List<Product> findAllByPriceMin(int minPrice){
+        return productRepository.findAllByPriceIsGreaterThanEqual(minPrice);
+    }
+
+    public List<Product> findAllByPriceMax(int maxPrice){
+        return productRepository.findAllByPriceIsLessThanEqual(maxPrice);
+    }
+
+    public List<Product> findByMinAndMax(int min, int max){
+        return productRepository.findAllByPriceIsGreaterThanEqualAndPriceIsLessThanEqual(min, max);
     }
 }
 

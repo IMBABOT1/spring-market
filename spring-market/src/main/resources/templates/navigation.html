@@ -29,6 +29,15 @@
                 <li class="nav-item" th:classappend="${activeTab == 'ProductsMinMax' ? 'active' : ''}">
                     <a class="nav-link" th:href="@{/products/min_max}">MaxMin</a>
                 </li>
+                <li class="nav-item" th:classappend="${activeTab == 'MaxPrice' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/products/max}">MaxPrice</a>
+                </li>
+                <li class="nav-item" th:classappend="${activeTab == 'MinPrice' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/products/min}">MinPrice</a>
+                </li>
+                <li class="nav-item" th:classappend="${activeTab == 'MaxMin' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/products/max_min}">MinPrice</a>
+                </li>
             </ul>
         </div>
     </nav>

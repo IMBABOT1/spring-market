@@ -31,13 +31,13 @@ public class ProductController {
 
     @GetMapping("/asc")
     public String findAllByPriceAsc(Model model) {
-        model.addAttribute("products", productServices.findAllByPriceASC());
+        model.addAttribute("products", productServices.findOneByPriceASC());
         return "productsAsc";
     }
 
     @GetMapping("/desc")
     public String findAllByPriceDesc(Model model){
-        model.addAttribute("products", productServices.findAllByPriceDesc());
+        model.addAttribute("products", productServices.findOneByPriceDesc());
         return "productsDesc";
     }
 
@@ -46,4 +46,24 @@ public class ProductController {
         model.addAttribute("products", productServices.findMinMaxPriceProduct());
         return "productsMinMax";
     }
+
+    @GetMapping("/min")
+    public String findMin(Model model, @RequestParam(defaultValue = "1", name = "p") Integer price){
+        model.addAttribute("products", productServices.findAllByPriceMin(price));
+        return "MinPrice";
+    }
+
+    @GetMapping("/max")
+    public String findMax(Model model, @RequestParam(defaultValue = "20", name = "p") Integer price){
+        model.addAttribute("products", productServices.findAllByPriceMax(price));
+        return "MaxPrice";
+    }
+
+    @GetMapping("/max_min")
+    public String findMaxMin(Model model, @RequestParam(defaultValue = "1", name = "p") Integer minPrice,
+                                          @RequestParam(defaultValue = "1", name = "p") Integer maxPrice) {
+        model.addAttribute("products", productServices.findByMinAndMax(minPrice, maxPrice));
+        return "MaxMin";
+    }
+
 }

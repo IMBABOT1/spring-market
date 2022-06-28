@@ -18,5 +18,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("select p from Product p order by p.price desc ")
     List<Product>findAllByPriceDESC(Pageable pageable);
 
+    List<Product> findAllByPriceIsGreaterThanEqual(int price);
+
+    List<Product> findAllByPriceIsLessThanEqual(int price);
+
+    List<Product> findAllByPriceIsGreaterThanEqualAndPriceIsLessThanEqual(int min, int max);
+
 
 }
