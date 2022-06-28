@@ -7,7 +7,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/postgres?currentSchema=geekmark
     username: postgres
-    password: admin
+    password: Gg2A7Vyz
   jpa:
     show-sql: true
     properties:
